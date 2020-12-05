@@ -14,6 +14,8 @@ $(call inherit-product, device/oneplus/guacamole/device.mk)
 # Inherit some common Derpfest stuff.
 $(call inherit-product, vendor/derp/config/common_full_phone.mk)
 
+
+
 # Device identifier. This must come after all inclusions.
 PRODUCT_NAME := derp_guacamole
 PRODUCT_DEVICE := guacamole
