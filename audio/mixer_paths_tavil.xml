@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<!-- Copyright (c) 2016-2019, The Linux Foundation. All rights reserved.    -->
+<!-- Copyright (c) 2016-2020, The Linux Foundation. All rights reserved.    -->
 <!--                                                                        -->
 <!-- Redistribution and use in source and binary forms, with or without     -->
 <!-- modification, are permitted provided that the following conditions are -->
@@ -78,6 +78,7 @@
     <ctl name="MultiMedia8 Mixer SLIM_4_TX" value="0" />
     <ctl name="MultiMedia8 Mixer SLIM_7_TX" value="0" />
     <ctl name="MultiMedia10 Mixer SLIM_0_TX" value="0" />
+    <ctl name="MultiMedia10 Mixer SLIM_1_TX" value="0" />
     <ctl name="MultiMedia10 Mixer SLIM_7_TX" value="0" />
     <ctl name="MultiMedia10 Mixer AFE_PCM_TX" value="0" />
     <ctl name="MultiMedia17 Mixer SLIM_0_TX" value="0" />
@@ -299,6 +300,9 @@
     <ctl name="VoiceMMode1_Tx Mixer USB_AUDIO_TX_MMode1" value="0" />
     <!-- Multimode Voice1 Display-Port -->
     <ctl name="DISPLAY_PORT_RX_Voice Mixer VoiceMMode1" value="0" />
+    <!-- Multimode Voice1 proxy-Port -->
+    <ctl name="PROXY_RX_Voice Mixer VoiceMMode1" value="0" />
+    <ctl name="VoiceMMode1_Tx Mixer PROXY_TX_MMode1" value="0" />
     <!-- Miltimode Voice1 end-->
 
     <!-- Multimode Voice2 -->
@@ -316,6 +320,9 @@
     <ctl name="VoiceMMode2_Tx Mixer USB_AUDIO_TX_MMode2" value="0" />
     <!-- Multimode Voice2 Display-Port -->
     <ctl name="DISPLAY_PORT_RX_Voice Mixer VoiceMMode2" value="0" />
+    <!-- Multimode Voice2 proxy-Port -->
+    <ctl name="PROXY_RX_Voice Mixer VoiceMMode2" value="0" />
+    <ctl name="VoiceMMode2_Tx Mixer PROXY_TX_MMode2" value="0" />
     <!-- Multimode Voice2 end-->
 
     <!-- Voice external ec. reference -->
@@ -330,8 +337,8 @@
     <!-- RT Proxy Cal end -->
 
     <!-- Incall Recording -->
-    <ctl name="MultiMedia1 Mixer VOC_REC_UL" value="0" />
-    <ctl name="MultiMedia1 Mixer VOC_REC_DL" value="0" />
+    <ctl name="MultiMedia9 Mixer VOC_REC_UL" value="0" />
+    <ctl name="MultiMedia9 Mixer VOC_REC_DL" value="0" />
     <ctl name="MultiMedia8 Mixer VOC_REC_UL" value="0" />
     <ctl name="MultiMedia8 Mixer VOC_REC_DL" value="0" />
     <ctl name="MultiMedia17 Mixer VOC_REC_UL" value="0" />
@@ -406,24 +413,24 @@
     <!-- Volume controls -->
     <ctl name="LINEOUT1 Volume" value="13" />
     <ctl name="LINEOUT2 Volume" value="13" />
-    <ctl name="HPHL Volume" value="20" />
-    <ctl name="HPHR Volume" value="20" />
+    <ctl name="HPHL Volume" value="28" />
+    <ctl name="HPHR Volume" value="28" />
     <ctl name="EAR PA Gain" value="G_6_DB" />
     <ctl name="EAR SPKR PA Gain" value="G_DEFAULT" />
 
-    <ctl name="RX0 Digital Volume" value="84" />
-    <ctl name="RX1 Digital Volume" value="84" />
-    <ctl name="RX2 Digital Volume" value="84" />
-    <ctl name="RX3 Digital Volume" value="84" />
-    <ctl name="RX4 Digital Volume" value="84" />
-    <ctl name="RX5 Digital Volume" value="84" />
-    <ctl name="RX6 Digital Volume" value="84" />
-    <ctl name="RX7 Digital Volume" value="84" />
-    <ctl name="ADC1 Volume" value="12" />
-    <ctl name="ADC2 Volume" value="12" />
+    <ctl name="RX0 Digital Volume" value="92" />
+    <ctl name="RX1 Digital Volume" value="92" />
+    <ctl name="RX2 Digital Volume" value="92" />
+    <ctl name="RX3 Digital Volume" value="92" />
+    <ctl name="RX4 Digital Volume" value="92" />
+    <ctl name="RX5 Digital Volume" value="92" />
+    <ctl name="RX6 Digital Volume" value="92" />
+    <ctl name="RX7 Digital Volume" value="92" />
+    <ctl name="ADC1 Volume" value="20" />
+    <ctl name="ADC2 Volume" value="20" />
     <!-- #ifdef VENDOR_EDIT-->
-    <ctl name="ADC3 Volume" value="12" />
-    <ctl name="ADC4 Volume" value="12" />
+    <ctl name="ADC3 Volume" value="20" />
+    <ctl name="ADC4 Volume" value="20" />
     <ctl name="DEC0 Volume" value="84" />
     <ctl name="DEC1 Volume" value="84" />
     <ctl name="DEC2 Volume" value="84" />
@@ -1980,7 +1987,7 @@
     </path>
 
     <path name="incall-rec-uplink">
-        <ctl name="MultiMedia1 Mixer VOC_REC_UL" value="1" />
+        <ctl name="MultiMedia9 Mixer VOC_REC_UL" value="1" />
     </path>
 
     <path name="incall-rec-uplink bt-sco">
@@ -2007,6 +2014,10 @@
         <ctl name="MultiMedia8 Mixer VOC_REC_UL" value="1" />
     </path>
 
+    <path name="incall-rec-uplink call-proxy-in">
+        <path name="incall-rec-uplink" />
+    </path>
+
     <path name="incall-rec-uplink-compress headset-mic">
         <path name="incall-rec-uplink-compress" />
     </path>
@@ -2028,7 +2039,7 @@
     </path>
 
     <path name="incall-rec-downlink">
-        <ctl name="MultiMedia1 Mixer VOC_REC_DL"  value="1" />
+        <ctl name="MultiMedia9 Mixer VOC_REC_DL"  value="1" />
     </path>
 
     <path name="incall-rec-downlink bt-sco">
@@ -2053,6 +2064,10 @@
 
     <path name="incall-rec-downlink-compress">
         <ctl name="MultiMedia8 Mixer VOC_REC_DL" value="1" />
+    </path>
+
+    <path name="incall-rec-downlink call-proxy-in">
+        <path name="incall-rec-downlink" />
     </path>
 
     <path name="incall-rec-downlink-compress headset-mic">
@@ -2103,6 +2118,10 @@
     <path name="incall-rec-uplink-and-downlink-compress">
         <path name="incall-rec-uplink-compress" />
         <path name="incall-rec-downlink-compress" />
+    </path>
+
+    <path name="incall-rec-uplink-and-downlink call-proxy-in">
+        <path name="incall-rec-uplink-and-downlink" />
     </path>
 
     <path name="incall-rec-uplink-and-downlink-compress bt-sco">
@@ -2201,6 +2220,11 @@
         <ctl name="VoiceMMode1_Tx Mixer SLIM_0_TX_MMode1" value="1" />
     </path>
 
+    <path name="voicemmode1-call call-proxy">
+        <ctl name="PROXY_RX_Voice Mixer VoiceMMode1" value="1" />
+        <ctl name="VoiceMMode1_Tx Mixer PROXY_TX_MMode1" value="1" />
+    </path>
+
 <!-- #ifdef VENDOR_EDIT -->
 <!-- zhangrun@MM.Audio,2020/04/21, add for Hearing Aid feature-->
     <path name="voicemmode1-call hearing-aid">
@@ -2270,6 +2294,11 @@
     <path name="voicemmode2-call">
         <ctl name="SLIM_0_RX_Voice Mixer VoiceMMode2" value="1" />
         <ctl name="VoiceMMode2_Tx Mixer SLIM_0_TX_MMode2" value="1" />
+    </path>
+
+    <path name="voicemmode2-call call-proxy">
+        <ctl name="PROXY_RX_Voice Mixer VoiceMMode2" value="1" />
+        <ctl name="VoiceMMode2_Tx Mixer PROXY_TX_MMode2" value="1" />
     </path>
 
 <!-- #ifdef VENDOR_EDIT -->
@@ -2832,7 +2861,7 @@
     <path name="third-mic-mmi">
         <path name="amic1" />
         <ctl name="DEC6 Volume" value="84" />
-        <ctl name="ADC1 Volume" value="12" />
+        <ctl name="ADC1 Volume" value="20" />
         <!-- <path name="amic5" />
         <ctl name="DEC0 Volume" value="84" />
         <ctl name="ADC4 Volume" value="12" /> -->
@@ -2875,9 +2904,9 @@
         <ctl name="CDC_IF TX8 MUX" value="DEC8" />
         <ctl name="ADC MUX8" value="AMIC" />
         <ctl name="AMIC MUX8" value="ADC1" />
-        <ctl name="ADC1 Volume" value="6" />
-        <ctl name="ADC3 Volume" value="6" />
-        <ctl name="ADC4 Volume" value="6" />
+        <ctl name="ADC1 Volume" value="14" />
+        <ctl name="ADC3 Volume" value="14" />
+        <ctl name="ADC4 Volume" value="14" />
     </path>
 <!-- //liuhaituo@MM.Audio, 2019/7/19, Add three-stage headphones Karaoke special mic -->
     <path name="headphone-mic-karaoke">
@@ -2887,12 +2916,12 @@
         <ctl name="ADC MUX5" value="AMIC" />
         <ctl name="AMIC MUX5" value="ADC4" />
         <ctl name="AMIC4_5 SEL" vlaue="AMIC4" />
-        <ctl name="ADC4 Volume" value="6" />
+        <ctl name="ADC4 Volume" value="14" />
     </path>
 <!--endif -->
     <path name="handset-mic-rec">
         <path name="amic3" />
-        <ctl name="ADC3 Volume" value="6" />
+        <ctl name="ADC3 Volume" value="14" />
     </path>
 <!--endif -->
 
@@ -3288,7 +3317,7 @@
     <path name="voice-rec-mic">
         <path name="handset-mic" />
 <!-- ifdef VENDOR_EDIT -->
-        <ctl name="ADC4 Volume" value="6" />
+        <ctl name="ADC4 Volume" value="14" />
         <ctl name="DEC0 Volume" value="74" />
 <!-- endif -->
     </path>
@@ -3388,8 +3417,8 @@
         <ctl name="AMIC MUX6" value="ADC3" />
         <ctl name="DEC5 Volume" value="90" />
         <ctl name="DEC6 Volume" value="90" />
-        <ctl name="ADC3 Volume" value="6" />
-        <ctl name="ADC4 Volume" value="6" />
+        <ctl name="ADC3 Volume" value="14" />
+        <ctl name="ADC4 Volume" value="14" />
     </path>
 
     <path name="handset-mic-re-default">
@@ -3405,8 +3434,8 @@
         <ctl name="AMIC MUX6" value="ADC3" />
         <ctl name="DEC5 Volume" value="90" />
         <ctl name="DEC6 Volume" value="90" />
-        <ctl name="ADC3 Volume" value="6" />
-        <ctl name="ADC4 Volume" value="6" />
+        <ctl name="ADC3 Volume" value="14" />
+        <ctl name="ADC4 Volume" value="14" />
     </path>
 
      <path name="handset-mic-re-sbc-other">
@@ -3422,8 +3451,8 @@
         <ctl name="AMIC4_5 SEL" value="AMIC4" />
         <ctl name="DEC6 Volume" value="90" />
         <ctl name="DEC5 Volume" value="90" />
-        <ctl name="ADC3 Volume" value="6" />
-        <ctl name="ADC4 Volume" value="6" />
+        <ctl name="ADC3 Volume" value="14" />
+        <ctl name="ADC4 Volume" value="14" />
     </path>
 
       <path name="handset-mic-re-single">
@@ -3439,8 +3468,8 @@
         <ctl name="AMIC MUX6" value="ADC3" />
         <ctl name="DEC5 Volume" value="90" />
         <ctl name="DEC6 Volume" value="90" />
-        <ctl name="ADC3 Volume" value="6" />
-        <ctl name="ADC4 Volume" value="6" />
+        <ctl name="ADC3 Volume" value="14" />
+        <ctl name="ADC4 Volume" value="14" />
     </path>
 
    <path name="speaker-dmic-endfire-wechat-vm">
@@ -3454,8 +3483,8 @@
         <ctl name="CDC_IF TX6 MUX" value="DEC6" />
         <ctl name="ADC MUX6" value="AMIC" />
         <ctl name="AMIC MUX6" value="ADC3" />
-        <ctl name="ADC3 Volume" value="6" />
-        <ctl name="ADC4 Volume" value="6" />
+        <ctl name="ADC3 Volume" value="14" />
+        <ctl name="ADC4 Volume" value="14" />
     </path>
 
     <path name="speaker-mic-wechat-front">
@@ -3473,9 +3502,9 @@
         <ctl name="CDC_IF TX7 MUX" value="DEC7" />
         <ctl name="ADC MUX7" value="AMIC" />
         <ctl name="AMIC MUX7" value="ADC1" />
-        <ctl name="ADC3 Volume" value="6" />
-        <ctl name="ADC4 Volume" value="6" />
-        <ctl name="ADC1 Volume" value="6" />
+        <ctl name="ADC3 Volume" value="14" />
+        <ctl name="ADC4 Volume" value="14" />
+        <ctl name="ADC1 Volume" value="14" />
     </path>
 
     <path name="speaker-mic-wechat-back">
@@ -3493,9 +3522,9 @@
         <ctl name="CDC_IF TX7 MUX" value="DEC7" />
         <ctl name="ADC MUX7" value="AMIC" />
         <ctl name="AMIC MUX7" value="ADC1" />
-        <ctl name="ADC3 Volume" value="6" />
-        <ctl name="ADC4 Volume" value="6" />
-        <ctl name="ADC1 Volume" value="6" />
+        <ctl name="ADC3 Volume" value="14" />
+        <ctl name="ADC4 Volume" value="14" />
+        <ctl name="ADC1 Volume" value="14" />
     </path>
 
     <path name="voice-speaker-voip-mic">
@@ -3924,7 +3953,7 @@
     <path name="unprocessed-mic">
         <path name="unprocessed-handset-mic" />
 <!-- ifdef VENDOR_EDIT -->
-        <ctl name="ADC4 Volume" value="6" />
+        <ctl name="ADC4 Volume" value="14" />
         <ctl name="DEC0 Volume" value="78" />
 <!-- endif -->
     </path>
@@ -4403,6 +4432,11 @@
         <path name="incall_music_uplink" />
     </path>
 
+    <path name="incall_music_uplink call-proxy">
+        <path name="incall_music_uplink" />
+    </path>
+
+
     <path name="incall_music_uplink2">
         <ctl name="Incall_Music_2 Audio Mixer MultiMedia9" value="1" />
     </path>
@@ -4477,6 +4511,12 @@
 
     <path name="incall_music_uplink2 afe-proxy">
         <path name="incall_music_uplink2" />
+    </path>
+
+    <path name="call-proxy">
+    </path>
+
+    <path name="call-proxy-in">
     </path>
 
 <!-- #ifdef VENDOR_EDIT-->
